@@ -14,9 +14,13 @@
     body, html {
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
       background: linear-gradient(to bottom right, #4F46E5, #7C3AED);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .header-spacer {
+      height: 80px;
     }
 
     .logo {
@@ -27,6 +31,15 @@
       z-index: 11;
       border-radius: 12px;
       filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+      transition: width 0.2s;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        width: 150px;
+        top: 0.8rem;
+        left: 1rem;
+      }
     }
 
     nav {
@@ -38,7 +51,6 @@
       justify-content: flex-end;
       align-items: center;
       z-index: 10;
-      background: transparent;
       pointer-events: none;
     }
 
@@ -62,11 +74,11 @@
     }
 
     main {
-      min-height: 100vh;
-      padding: 7rem 2rem 4rem;
+      min-height: calc(100vh - 80px);
+      padding: 2rem;
       max-width: 600px;
       margin: 0 auto;
-      color: white;
+      z-index: 3;
     }
 
     h1 {
@@ -116,7 +128,6 @@
       border-radius: 30px;
       font-size: 1.1rem;
       cursor: pointer;
-      transition: background 0.3s;
     }
 
     button:hover {
@@ -131,16 +142,18 @@
     }
 
     @media (max-width: 768px) {
-      .logo { width: 150px; }
-      nav { padding: 1.5rem 1.5rem 1rem 170px; }
       form { padding: 2rem; }
-      main { padding: 8rem 1.5rem 4rem; }
+      main { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <a href="index.html"><img src="allxtechh-logo.png" alt="AllXTECHH Logo" class="logo" /></a>
+  <div class="header-spacer"></div>
+
+  <a href="index.html">
+    <img src="allxtechh-logo.png" alt="AllXTECHH Logo" class="logo" />
+  </a>
 
   <nav>
     <a href="index.html">Home</a>
