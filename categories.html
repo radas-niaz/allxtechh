@@ -16,6 +16,11 @@
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #4F46E5, #7C3AED);
       color: white;
+      overflow-x: hidden;
+    }
+
+    .header-spacer {
+      height: 80px;
     }
 
     .logo {
@@ -26,6 +31,15 @@
       z-index: 11;
       border-radius: 12px;
       filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+      transition: width 0.2s;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        width: 150px;
+        top: 0.8rem;
+        left: 1rem;
+      }
     }
 
     nav {
@@ -60,24 +74,24 @@
     }
 
     main {
-      min-height: 100vh;
-      padding: 7rem 2rem 4rem;
+      min-height: calc(100vh - 80px);
+      padding: 2rem;
       max-width: 1400px;
       margin: 0 auto;
-      text-align: center;
+      z-index: 3;
     }
 
     h1 {
+      text-align: center;
       font-size: 2.5rem;
       margin-bottom: 2.5rem;
-      color: white;
     }
 
-    /* Category Grid */
     .category-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
+      justify-items: center;
     }
 
     .category-card {
@@ -85,12 +99,8 @@
       border-radius: 14px;
       overflow: hidden;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .category-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 300px;
     }
 
     .category-card img {
@@ -124,7 +134,6 @@
       font-size: 0.9rem;
       border-radius: 20px;
       text-decoration: none;
-      transition: background 0.3s;
     }
 
     .btn:hover {
@@ -132,15 +141,17 @@
     }
 
     @media (max-width: 768px) {
-      .logo { width: 150px; }
-      nav { padding: 1.5rem 1.5rem 1rem 170px; }
-      main { padding: 8rem 1.5rem 4rem; }
+      main { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <a href="index.html"><img src="allxtechh-logo.png" alt="AllXTECHH Logo" class="logo" /></a>
+  <div class="header-spacer"></div>
+
+  <a href="index.html">
+    <img src="allxtechh-logo.png" alt="AllXTECHH Logo" class="logo" />
+  </a>
 
   <nav>
     <a href="index.html">Home</a>
@@ -154,17 +165,6 @@
     <h1>Explore Robotics & AR Categories</h1>
     <div class="category-grid">
 
-      <!-- Consumer Robotics -->
-      <div class="category-card">
-        <img src="https://m.media-amazon.com/images/I/71N+w+RfygL._AC_SL1500_.jpg" alt="Educational Robot Kit">
-        <div class="info">
-          <h3>Consumer Robotics</h3>
-          <p>Smart assistants, voice-controlled bots, and personal automation tools for daily life.</p>
-          <a href="#" class="btn">Explore</a>
-        </div>
-      </div>
-
-      <!-- Cleaning Robots -->
       <div class="category-card">
         <img src="https://m.media-amazon.com/images/I/61u6UmzH1ZL._AC_SL1500_.jpg" alt="Robot Vacuum">
         <div class="info">
@@ -174,19 +174,8 @@
         </div>
       </div>
 
-      <!-- Companion Robots -->
       <div class="category-card">
-        <img src="https://m.media-amazon.com/images/I/71wutvWmMcL._AC_SL1500_.jpg" alt="Miko 3 Educational Robot">
-        <div class="info">
-          <h3>Companion Robots</h3>
-          <p>Emotional support bots, pet-like robots, and social AI companions for families and seniors.</p>
-          <a href="#" class="btn">Explore</a>
-        </div>
-      </div>
-
-      <!-- Educational Kits -->
-      <div class="category-card">
-        <img src="https://m.media-amazon.com/images/I/71N+w+RfygL._AC_SL1500_.jpg" alt="Makeblock mBot">
+        <img src="https://m.media-amazon.com/images/I/71N+w+RfygL._AC_SL1500_.jpg" alt="Educational Robot Kit">
         <div class="info">
           <h3>Educational Robotics Kits</h3>
           <p>STEM learning kits for kids and classrooms — coding, building, and AI basics.</p>
@@ -194,9 +183,8 @@
         </div>
       </div>
 
-      <!-- AR Tools -->
       <div class="category-card">
-        <img src="https://m.media-amazon.com/images/I/81NdHZf2z1L._AC_SL1500_.jpg" alt="RayNeo Air 2 AR Glasses">
+        <img src="https://m.media-amazon.com/images/I/81NdHZf2z1L._AC_SL1500_.jpg" alt="AR Glasses">
         <div class="info">
           <h3>AR Tools</h3>
           <p>Augmented reality glasses, apps, and development kits for immersive experiences.</p>
@@ -204,9 +192,8 @@
         </div>
       </div>
 
-      <!-- Rehab & Wellness -->
       <div class="category-card">
-        <img src="https://m.media-amazon.com/images/I/71F8Ch-7XFL._AC_SL1500_.jpg" alt="Sphero Mini Robot Ball">
+        <img src="https://m.media-amazon.com/images/I/71F8Ch-7XFL._AC_SL1500_.jpg" alt="Sphero Mini">
         <div class="info">
           <h3>Rehab & Wellness Devices</h3>
           <p>Therapeutic robots and AR-guided rehab tools for physical and mental health.</p>
