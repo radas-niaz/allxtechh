@@ -19,29 +19,36 @@
       overflow-x: hidden;
     }
 
-    /* Spacer to prevent content from hiding under fixed elements */
+    /* Prevent fixed elements from overlapping content */
     .header-spacer {
-      height: 80px;
+      height: 90px; /* Slightly taller to account for larger logo */
     }
 
-    /* Clickable Logo */
+    /* Responsive Logo */
     .logo {
       position: fixed;
-      top: 1rem;
+      top: 0.8rem;
       left: 1.5rem;
       width: 180px;
-      z-index: 11;
+      height: auto;
+      max-width: 100%;
       border-radius: 12px;
       filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-      transition: width 0.2s;
+      z-index: 11;
+      /* Prevent oversized image from breaking layout */
+      object-fit: contain;
     }
 
     /* Mobile: Smaller logo */
     @media (max-width: 768px) {
       .logo {
-        width: 150px;
-        top: 0.8rem;
-        left: 1rem;
+        width: 150px; /* Proportionally scales 1921x521 → fits nicely */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 130px; /* Even smaller for tiny screens */
       }
     }
 
@@ -79,7 +86,7 @@
 
     /* Main Content */
     main {
-      min-height: calc(100vh - 80px);
+      min-height: calc(100vh - 90px);
       padding: 2rem;
       max-width: 1200px;
       margin: 0 auto;
@@ -100,27 +107,38 @@
       opacity: 0.95;
     }
 
-    /* Top Picks Grid */
-    .picks-grid {
+    /* Trending Section - Now properly positioned */
+    .trending {
+      margin-top: 3rem;
+      padding: 2.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .trending h2 {
+      font-size: 2.2rem;
+      text-align: center;
+      color: #4F46E5;
+      margin-bottom: 1.8rem;
+    }
+
+    .trending-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      justify-items: center;
-      margin-bottom: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
     }
 
     .product-card {
       background: white;
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-      width: 100%;
-      max-width: 300px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
 
     .product-card img {
       width: 100%;
-      height: 180px;
+      height: 160px;
       object-fit: cover;
     }
 
@@ -191,12 +209,15 @@
     @media (max-width: 768px) {
       main { padding: 1.5rem; }
       h1 { font-size: 2.2rem; }
+      .trending {
+        padding: 2rem 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Spacer to prevent content from hiding under fixed logo/nav -->
+  <!-- This spacer ensures content starts below fixed header -->
   <div class="header-spacer"></div>
 
   <!-- Clickable Logo -->
@@ -217,36 +238,54 @@
     <h1>Welcome to the Future of Tech</h1>
     <p class="lead">Affordable robotics and augmented reality solutions for consumers, families, educators, and small businesses.</p>
 
-    <!-- Top Picks Section -->
-    <div class="picks-grid">
-      <div class="product-card">
-        <img src="https://m.media-amazon.com/images/I/61u6UmzH1ZL._AC_SL1500_.jpg" alt="Eufy RoboVac 11S">
-        <div class="info">
-          <h3>Eufy RoboVac 11S</h3>
-          <p>Quiet robot vacuum with powerful suction for pet hair and carpets.</p>
-          <div class="bottom">
-            <span class="price">$199.99</span>
-            <a class="btn" href="https://www.amazon.com/dp/B079QYYGF1" target="_blank">Buy Now</a>
-          </div>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://m.media-amazon.com/images/I/71wutvWmMcL._AC_SL1500_.jpg" alt="Miko 3 Robot">
-        <div class="info">
-          <h3>Miko 3 Educational Robot</h3>
-          <p>Interactive AI robot for kids that teaches coding and STEM.</p>
-          <div class="bottom">
-            <span class="price">$249.00</span>
-            <a class="btn" href="https://www.amazon.com/dp/B09C5CBKBK" target="_blank">Buy Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
+    <!-- CTA Button -->
     <div class="cta-container">
       <button class="cta-btn" onclick="location.href='categories.html'">Explore All Categories</button>
     </div>
+
+    <!-- Trending Section -->
+    <section class="trending">
+      <h2>🔥 Trending This Week</h2>
+      <div class="trending-grid">
+
+        <div class="product-card">
+          <img src="https://m.media-amazon.com/images/I/61u6UmzH1ZL._AC_SL1500_.jpg" alt="Eufy RoboVac 11S">
+          <div class="info">
+            <h3>Eufy RoboVac 11S</h3>
+            <p>Quiet robot vacuum with powerful suction for pet hair and carpets.</p>
+            <div class="bottom">
+              <span class="price">$199.99</span>
+              <a class="btn" href="https://www.amazon.com/dp/B079QYYGF1" target="_blank">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="https://m.media-amazon.com/images/I/71wutvWmMcL._AC_SL1500_.jpg" alt="Miko 3 Robot">
+          <div class="info">
+            <h3>Miko 3 Educational Robot</h3>
+            <p>Interactive AI robot for kids that teaches coding and STEM.</p>
+            <div class="bottom">
+              <span class="price">$249.00</span>
+              <a class="btn" href="https://www.amazon.com/dp/B09C5CBKBK" target="_blank">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="https://m.media-amazon.com/images/I/81NdHZf2z1L._AC_SL1500_.jpg" alt="AR Glasses">
+          <div class="info">
+            <h3>RayNeo Air 2 AR Glasses</h3>
+            <p>Augmented reality smart glasses with Bluetooth & voice control.</p>
+            <div class="bottom">
+              <span class="price">$379.99</span>
+              <a class="btn" href="https://www.amazon.com/dp/B0CZQH5LNL" target="_blank">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </main>
 
 </body>
