@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>About Us | AllXTECHH</title>
   <style>
     * {
@@ -13,29 +13,27 @@
 
     body, html {
       height: 100%;
+      min-height: 100dvh;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #4F46E5, #7C3AED);
       color: white;
       overflow-x: hidden;
     }
 
-    /* Prevent overlap */
-    .header-spacer {
-      height: 90px;
+    body {
+      padding-top: 90px;
     }
 
-    /* Responsive Logo */
     .logo {
       position: fixed;
-      top: 0.8rem;
+      top: 1rem;
       left: 1.5rem;
       width: 180px;
       height: auto;
-      max-width: 100%;
+      max-width: 40%;
       border-radius: 12px;
       filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
       z-index: 11;
-      object-fit: contain;
     }
 
     @media (max-width: 768px) {
@@ -81,17 +79,15 @@
     }
 
     main {
-      min-height: calc(100vh - 90px);
+      min-height: calc(100dvh - 90px);
       padding: 2rem;
       max-width: 900px;
       margin: 0 auto;
-      z-index: 3;
     }
 
     h1, h2 {
       text-align: center;
       margin-bottom: 1.5rem;
-      color: white;
     }
 
     p {
@@ -124,23 +120,12 @@
       color: #4F46E5;
     }
 
-    .member p {
-      margin: 0.5rem 0;
-      font-weight: 500;
-    }
-
-    .member small {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
     @media (max-width: 768px) {
       main { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
-
-  <div class="header-spacer"></div>
 
   <a href="index.html">
     <img src="allxtechh-logo.png" alt="AllXTECHH Logo" class="logo" />
