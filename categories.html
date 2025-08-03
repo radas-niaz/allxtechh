@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories | AllXTECHH</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #4F46E5, #7C3AED);
+      color: white;
+    }
+
+    .logo {
+      position: fixed;
+      top: 1rem;
+      left: 1.5rem;
+      width: 180px;
+      z-index: 11;
+      border-radius: 12px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 2rem 1rem 200px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin-left: 1.8rem;
+      pointer-events: auto;
+      opacity: 0.95;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
+
+    nav a.active {
+      font-weight: 600;
+    }
+
+    main {
+      min-height: 100vh;
+      padding: 7rem 2rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2.5rem;
+      color: white;
+    }
+
+    /* Category Grid */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .category-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .category-card .info {
+      padding: 1.5rem;
+    }
+
+    .category-card h3 {
+      font-size: 1.2rem;
+      color: #4F46E5;
+      margin-bottom: 0.8rem;
+    }
+
+    .category-card p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #4F46E5;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #3730a3;
+    }
+
+    @media (max-width: 768px) {
+      .logo { width: 150px; }
+      nav { padding: 1.5rem 1.5rem 1rem 170px; }
+      main { padding: 8rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html"><img src="allxtechh-logo.png" alt="AllXTECHH Logo" class="logo" /></a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="categories.html" class="active">Categories</a>
+    <a href="top-picks.html">Top Picks</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <main>
+    <h1>Explore Robotics & AR Categories</h1>
+    <div class="category-grid">
+
+      <!-- Consumer Robotics -->
+      <div class="category-card">
+        <img src="https://m.media-amazon.com/images/I/71N+w+RfygL._AC_SL1500_.jpg" alt="Educational Robot Kit">
+        <div class="info">
+          <h3>Consumer Robotics</h3>
+          <p>Smart assistants, voice-controlled bots, and personal automation tools for daily life.</p>
+          <a href="#" class="btn">Explore</a>
+        </div>
+      </div>
+
+      <!-- Cleaning Robots -->
+      <div class="category-card">
+        <img src="https://m.media-amazon.com/images/I/61u6UmzH1ZL._AC_SL1500_.jpg" alt="Robot Vacuum">
+        <div class="info">
+          <h3>Cleaning Robots</h3>
+          <p>Robot vacuums, mops, and window cleaners that save time and effort.</p>
+          <a href="#" class="btn">Explore</a>
+        </div>
+      </div>
+
+      <!-- Companion Robots -->
+      <div class="category-card">
+        <img src="https://m.media-amazon.com/images/I/71wutvWmMcL._AC_SL1500_.jpg" alt="Miko 3 Educational Robot">
+        <div class="info">
+          <h3>Companion Robots</h3>
+          <p>Emotional support bots, pet-like robots, and social AI companions for families and seniors.</p>
+          <a href="#" class="btn">Explore</a>
+        </div>
+      </div>
+
+      <!-- Educational Kits -->
+      <div class="category-card">
+        <img src="https://m.media-amazon.com/images/I/71N+w+RfygL._AC_SL1500_.jpg" alt="Makeblock mBot">
+        <div class="info">
+          <h3>Educational Robotics Kits</h3>
+          <p>STEM learning kits for kids and classrooms — coding, building, and AI basics.</p>
+          <a href="#" class="btn">Explore</a>
+        </div>
+      </div>
+
+      <!-- AR Tools -->
+      <div class="category-card">
+        <img src="https://m.media-amazon.com/images/I/81NdHZf2z1L._AC_SL1500_.jpg" alt="RayNeo Air 2 AR Glasses">
+        <div class="info">
+          <h3>AR Tools</h3>
+          <p>Augmented reality glasses, apps, and development kits for immersive experiences.</p>
+          <a href="#" class="btn">Explore</a>
+        </div>
+      </div>
+
+      <!-- Rehab & Wellness -->
+      <div class="category-card">
+        <img src="https://m.media-amazon.com/images/I/71F8Ch-7XFL._AC_SL1500_.jpg" alt="Sphero Mini Robot Ball">
+        <div class="info">
+          <h3>Rehab & Wellness Devices</h3>
+          <p>Therapeutic robots and AR-guided rehab tools for physical and mental health.</p>
+          <a href="#" class="btn">Explore</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

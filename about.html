@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | AllXTECHH</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      background: linear-gradient(to bottom right, #4F46E5, #7C3AED);
+    }
+
+    .logo {
+      position: fixed;
+      top: 1rem;
+      left: 1.5rem;
+      width: 180px;
+      z-index: 11;
+      border-radius: 12px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 2rem 1rem 200px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 10;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin-left: 1.8rem;
+      pointer-events: auto;
+      opacity: 0.95;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
+
+    nav a.active {
+      font-weight: 600;
+    }
+
+    main {
+      min-height: 100vh;
+      padding: 7rem 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+      color: white;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .member {
+      text-align: center;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      background: #f9f9f9;
+      border-radius: 50%;
+      margin: 0 auto 0.8rem;
+      border: 3px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #4F46E5;
+    }
+
+    .member p {
+      margin: 0.5rem 0;
+      font-weight: 500;
+    }
+
+    .member small {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    @media (max-width: 768px) {
+      .logo { width: 150px; }
+      nav { padding: 1.5rem 1.5rem 1rem 170px; }
+      main { padding: 8rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html"><img src="allxtechh-logo.png" alt="AllXTECHH Logo" class="logo" /></a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="top-picks.html">Top Picks</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html" class="active">About Us</a>
+  </nav>
+
+  <main>
+    <h1>About AllXTECHH</h1>
+    <p>We believe cutting-edge robotics and augmented reality should be accessible to everyone — not just big corporations. Our mission is to help consumers, families, educators, and small businesses discover affordable, high-performance tech that makes life easier and more engaging.</p>
+    <p>As an affiliate platform, we test and recommend products we trust. No paid promotions — just honest insights and value-driven picks.</p>
+
+    <h2>Our Team</h2>
+    <div class="team">
+      <div class="member">
+        <div class="avatar">LK</div>
+        <p>Lena K.</p>
+        <small>Robotics Lead</small>
+      </div>
+      <div class="member">
+        <div class="avatar">JT</div>
+        <p>Jamal T.</p>
+        <small>AR Specialist</small>
+      </div>
+      <div class="member">
+        <div class="avatar">RP</div>
+        <p>Ravi P.</p>
+        <small>Education Advisor</small>
+      </div>
+      <div class="member">
+        <div class="avatar">SL</div>
+        <p>Sophie L.</p>
+        <small>Outreach</small>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
