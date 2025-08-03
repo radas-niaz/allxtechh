@@ -13,7 +13,6 @@
 
     body, html {
       height: 100%;
-      min-height: 100dvh;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #4F46E5, #7C3AED);
       color: white;
@@ -27,35 +26,22 @@
     .logo {
       position: fixed;
       top: 1rem;
-      left: 1.5rem;
-      width: 180px;
+      left: 1rem;
+      width: 150px;
       height: auto;
-      max-width: 40%;
+      z-index: 1001;
       border-radius: 12px;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-      z-index: 11;
-    }
-
-    @media (max-width: 768px) {
-      .logo {
-        width: 150px;
-      }
-    }
-    @media (max-width: 480px) {
-      .logo {
-        width: 130px;
-      }
     }
 
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 1.5rem 2rem 1rem 200px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      z-index: 10;
+      padding: 1.5rem 2rem 1rem 200px;
+      z-index: 1000;
       pointer-events: none;
     }
 
@@ -75,11 +61,10 @@
     }
 
     nav a.active {
-      font-weight: 600;
+      font-weight: bold;
     }
 
     main {
-      min-height: calc(100dvh - 90px);
       padding: 2rem;
       max-width: 1400px;
       margin: 0 auto;
@@ -100,11 +85,17 @@
 
     .product-card {
       background: white;
+      color: #333;
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 300px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
     }
 
     .product-card img {
@@ -120,7 +111,7 @@
     .product-card h3 {
       font-size: 1.1rem;
       margin-bottom: 0.4rem;
-      color: #333;
+      color: #4F46E5;
     }
 
     .product-card p {
@@ -153,8 +144,56 @@
       background: #3730a3;
     }
 
+    /* Mobile Styles */
+    .mobile-nav-toggle {
+      display: none;
+      position: fixed;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: white;
+      z-index: 1002;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 70px;
+      right: 0;
+      background-color: rgba(79, 70, 229, 0.95);
+      padding: 1rem 2rem;
+      border-bottom-left-radius: 12px;
+      z-index: 999;
+    }
+
+    .mobile-menu a {
+      margin: 0.8rem 0;
+    }
+
     @media (max-width: 768px) {
-      main { padding: 1.5rem; }
+      nav {
+        justify-content: space-between;
+        padding: 1rem 1rem 1rem 150px;
+      }
+
+      nav a {
+        display: none;
+      }
+
+      .mobile-nav-toggle {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: flex;
+      }
     }
   </style>
 </head>
@@ -170,7 +209,16 @@
     <a href="top-picks.html" class="active">Top Picks</a>
     <a href="contact.html">Contact</a>
     <a href="about.html">About Us</a>
+    <button class="mobile-nav-toggle" onclick="document.querySelector('.mobile-menu').classList.toggle('active')">☰</button>
   </nav>
+
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="top-picks.html" class="active">Top Picks</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About Us</a>
+  </div>
 
   <main>
     <h1>🏆 Editor’s Choice: Best Robotics & AR</h1>
@@ -201,7 +249,7 @@
       </div>
 
       <div class="product-card">
-        <img src="https://m.media-amazon.com/images/I/81NdHZf2z1L._AC_SL1500_.jpg" alt="AR Glasses">
+        <img src="https://m.media-amazon.com/images/I/81NdHZf2z1L._AC_SL1500_.jpg" alt="RayNeo AR Glasses">
         <div class="info">
           <h3>RayNeo Air 2 AR Glasses</h3>
           <p>Augmented reality smart glasses with Bluetooth & voice control.</p>
