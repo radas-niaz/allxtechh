@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AllXTECHH | Future of Robotics & AR</title>
   <style>
     * {
@@ -12,176 +12,249 @@
     }
 
     body, html {
-      height: 100%;
-      min-height: 100dvh; /* iPhone-safe viewport height */
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #4F46E5, #7C3AED);
-      color: white;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
-    /* ✅ Push content down so it doesn't hide under fixed logo */
-    body {
-      padding-top: 90px; /* Slightly more than logo+nav height */
-    }
-
-    /* ✅ Logo: now 400x108, scales perfectly */
-    .logo {
-      position: fixed;
-      top: 1rem;
-      left: 1.5rem;
-      width: 180px; /* ~45% of 400px → proportional */
-      height: auto;
-      max-width: 40%; /* Never exceed 40% of screen width */
-      border-radius: 12px;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-      z-index: 11;
-      object-fit: contain;
-    }
-
-    /* Mobile: smaller logo */
-    @media (max-width: 768px) {
-      .logo {
-        width: 150px;
-      }
-    }
-    @media (max-width: 480px) {
-      .logo {
-        width: 130px;
-      }
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1.5rem 2rem 1rem 200px;
+    header {
       display: flex;
-      justify-content: flex-end;
       align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.05);
       z-index: 10;
-      pointer-events: none;
+    }
+
+    .logo {
+      width: 140px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-size: 1.1rem;
-      margin-left: 1.8rem;
-      pointer-events: auto;
-      opacity: 0.95;
+      font-size: 1rem;
       transition: all 0.3s;
+      opacity: 0.9;
     }
 
     nav a:hover {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
       opacity: 1;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
     }
 
-    nav a.active {
-      font-weight: 600;
-    }
-
-    /* Main Content */
     main {
-      min-height: calc(100dvh - 90px);
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      text-align: center;
+      color: white;
+      padding: 4rem 1rem 2rem;
     }
 
-    /* Responsive */
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-btn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .trending {
+      padding: 3rem 1rem;
+      background: #fff;
+      border-radius: 2rem 2rem 0 0;
+    }
+
+    .trending h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #4F46E5;
+      margin-bottom: 2rem;
+    }
+
+    .trending-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .product-card {
+      flex: 0 0 auto;
+      width: 280px;
+      background: #f8f8f8;
+      border-radius: 1rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-card .info {
+      padding: 1rem;
+      flex-grow: 1;
+    }
+
+    .product-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .price {
+      color: #4F46E5;
+      font-weight: bold;
+    }
+
+    .btn {
+      background: #4F46E5;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .btn:hover {
+      background: #3730a3;
+    }
+
     @media (max-width: 768px) {
-      main { padding: 1.5rem; }
+      h1 {
+        font-size: 2.1rem;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .logo {
+        width: 120px;
+      }
+
+      .product-card {
+        width: 240px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Clickable Logo -->
-  <a href="index.html">
-    <img src="allxtechh-logo.png" alt="AllXTECHH Logo" class="logo" />
-  </a>
+  <header>
+    <a href="index.html">
+      <img src="allxtechh-logo.png" alt="AllXTECHH Logo" class="logo" />
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="top-picks.html">Top Picks</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="categories.html">Categories</a>
-    <a href="top-picks.html">Top Picks</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About Us</a>
-  </nav>
-
-  <!-- Main Content -->
   <main>
     <h1>Welcome to the Future of Tech</h1>
-    <p>Affordable robotics and augmented reality solutions for consumers, families, educators, and small businesses.</p>
+    <p class="lead">Affordable robotics and augmented reality solutions for consumers, families, educators, and small businesses.</p>
+    <button class="cta-btn" onclick="location.href='categories.html'">Explore Categories</button>
   </main>
 
   <section class="trending">
-  <h2>🔥 Trending This Week</h2>
-  <div class="trending-scroll">
+    <h2>🔥 Trending This Week</h2>
+    <div class="trending-scroll">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61u6UmzH1ZL._AC_SL1500_.jpg" alt="Eufy Robot Vacuum">
+        <div class="info">
+          <h3>Eufy RoboVac 11S</h3>
+          <p>Quiet robot vacuum with powerful suction for pet hair and carpets.</p>
+          <div class="bottom">
+            <span class="price">$199.99</span>
+            <a class="btn" href="https://www.amazon.com/dp/B079QYYGF1" target="_blank">Buy Now</a>
+          </div>
+        </div>
+      </div>
 
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/61u6UmzH1ZL._AC_SL1500_.jpg" alt="Eufy Robot Vacuum">
-      <div class="info">
-        <h3>Eufy RoboVac 11S</h3>
-        <p>Quiet robot vacuum with powerful suction for pet hair and carpets.</p>
-        <div class="bottom">
-          <span class="price">$199.99</span>
-          <a class="btn" href="https://www.amazon.com/dp/B079QYYGF1" target="_blank">Buy Now</a>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71wutvWmMcL._AC_SL1500_.jpg" alt="Miko 3 Robot">
+        <div class="info">
+          <h3>Miko 3 Educational Robot</h3>
+          <p>Interactive AI robot for kids that teaches coding and STEM.</p>
+          <div class="bottom">
+            <span class="price">$249.00</span>
+            <a class="btn" href="https://www.amazon.com/dp/B09C5CBKBK" target="_blank">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81NdHZf2z1L._AC_SL1500_.jpg" alt="AR Smart Glasses">
+        <div class="info">
+          <h3>RayNeo Air 2 AR Glasses</h3>
+          <p>Augmented reality smart glasses with Bluetooth & voice control.</p>
+          <div class="bottom">
+            <span class="price">$379.99</span>
+            <a class="btn" href="https://www.amazon.com/dp/B0CZQH5LNL" target="_blank">Buy Now</a>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/71wutvWmMcL._AC_SL1500_.jpg" alt="Miko 3 Robot">
-      <div class="info">
-        <h3>Miko 3 Educational Robot</h3>
-        <p>Interactive AI robot for kids that teaches coding and STEM.</p>
-        <div class="bottom">
-          <span class="price">$249.00</span>
-          <a class="btn" href="https://www.amazon.com/dp/B09C5CBKBK" target="_blank">Buy Now</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/81NdHZf2z1L._AC_SL1500_.jpg" alt="AR Smart Glasses">
-      <div class="info">
-        <h3>RayNeo Air 2 AR Glasses</h3>
-        <p>Augmented reality smart glasses with Bluetooth & voice control.</p>
-        <div class="bottom">
-          <span class="price">$379.99</span>
-          <a class="btn" href="https://www.amazon.com/dp/B0CZQH5LNL" target="_blank">Buy Now</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/71N+w+RfygL._AC_SL1500_.jpg" alt="Makeblock mBot">
-      <div class="info">
-        <h3>Makeblock mBot Robot Kit</h3>
-        <p>STEM DIY robotics kit for kids with app-based coding.</p>
-        <div class="bottom">
-          <span class="price">$89.99</span>
-          <a class="btn" href="https://www.amazon.com/dp/B010UQ6Z6I" target="_blank">Buy Now</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="https://m.media-amazon.com/images/I/71F8Ch-7XFL._AC_SL1500_.jpg" alt="Sphero Mini">
-      <div class="info">
-        <h3>Sphero Mini Robot Ball</h3>
-        <p>Programmable robot with games & code learning features.</p>
-        <div class="bottom">
-          <span class="price">$49.99</span>
-          <a class="btn" href="https://www.amazon.com/dp/B074TYC7DY" target="_blank">Buy Now</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
+</body>
+</html>
