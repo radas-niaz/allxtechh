@@ -19,26 +19,33 @@
       overflow-x: hidden;
     }
 
+    /* Prevent overlap */
     .header-spacer {
-      height: 80px;
+      height: 90px;
     }
 
+    /* Responsive Logo */
     .logo {
       position: fixed;
-      top: 1rem;
+      top: 0.8rem;
       left: 1.5rem;
       width: 180px;
-      z-index: 11;
+      height: auto;
+      max-width: 100%;
       border-radius: 12px;
       filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-      transition: width 0.2s;
+      z-index: 11;
+      object-fit: contain;
     }
 
     @media (max-width: 768px) {
       .logo {
         width: 150px;
-        top: 0.8rem;
-        left: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .logo {
+        width: 130px;
       }
     }
 
@@ -74,7 +81,7 @@
     }
 
     main {
-      min-height: calc(100vh - 80px);
+      min-height: calc(100vh - 90px);
       padding: 2rem;
       max-width: 900px;
       margin: 0 auto;
